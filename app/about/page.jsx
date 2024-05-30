@@ -9,3 +9,7 @@ const page = () => {
 }
 
 export default page
+export const metadata = {
+    title: "OTT | About",
+    description: "About page of OTT",
+  };
