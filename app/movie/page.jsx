@@ -28,11 +28,17 @@ try {
   
   
   return (
+    <>
     <div className='flex flex-wrap justify-evenly'>
       {data.map((curElem) => {
-        return <Moviecard key={curElem["summary"]["id"]} id={curElem["summary"]["id"]} title={curElem["jawSummary"]["title"]} description={curElem["jawSummary"]["synopsis"]}/>
+        return <Moviecard key={curElem["summary"]["id"]} id={curElem["summary"]["id"]} title={curElem["jawSummary"]["title"]} description={curElem["jawSummary"]["synopsis"]} poster={curElem["jawSummary"]["backgroundImage"]["url"]} releaseDate={curElem["jawSummary"]["releaseYear"]} type={curElem["jawSummary"]["type"]}/>
       })}
     </div>
+    <div className="flex justify-center"><button type="button" className="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Load more</button>
+</div>
+    
+    </>
+    
   )
 }
 
