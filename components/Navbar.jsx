@@ -18,8 +18,8 @@ const Navbar = () => {
     </section>
   
     <div className='flex flex-wrap items-center justify-between gap-4 px-10 py-4 bg-white min-h-[70px]'>
-      <Link href="/"><img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.933601817.1717372800&semt=sph" alt="logo" className='w-12' />
-      </Link>
+      {/* <Link href="/"><img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.933601817.1717372800&semt=sph" alt="logo" className='w-12' /> */}
+      {/* </Link> */}
   
       <div id="collapseMenu"
         className='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50'>
