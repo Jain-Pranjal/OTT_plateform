@@ -4,6 +4,7 @@ import React from 'react'
 import Moviecard from "@/components/Moviecard";
 
 
+
 const page = async() => {
   // similate a delay
   await new Promise(resolve => setTimeout(resolve, 2000));
@@ -11,6 +12,7 @@ const page = async() => {
   const url = process.env.RAPIDAPI_URL;
   const options = {
     method: 'GET',
+    'User-Agent': "*",
 	headers: {
 		'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
 		'X-RapidAPI-Host': process.env.RAPIDAPI_HOST,

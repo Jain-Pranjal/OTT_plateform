@@ -1,9 +1,10 @@
+import ContactCard from '@/components/ContactCard';
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        contact page
+       <ContactCard/>
     </div>
   )
 }
