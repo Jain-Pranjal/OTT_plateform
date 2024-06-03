@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <>
     {/* adding the script for the toggling of navbar in the mobile devices */}
-    <Script>{toggling}</Script>
+    <Script id="my-script">{toggling}</Script>
 
 
     <div>
