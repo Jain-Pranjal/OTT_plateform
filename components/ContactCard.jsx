@@ -1,7 +1,10 @@
 "use client"
 import React,{useEffect,useState} from 'react'
 import Link from 'next/link'
-import tailwindConfig from '@/tailwind.config'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const ContactCard = () => {
     const [formdata,setFormData]=useState({
         username:'',
@@ -14,24 +17,34 @@ const ContactCard = () => {
       setFormData({...formdata,[e.target.name]:[e.target.value]})
     }
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        // getting the data from the form
-      
-        // console.log(formname,formemail,formsubject,formmessage)
+// notification 
+const notify = () => toast("data submitted !");
 
-        const submitData = await fetch('/api/formdata', {
-            method: 'POST',
-            body: JSON.stringify({ formdata }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        const response = await submitData.json()
-        console.log(response)
 
-        
+const handleSubmit =async(e)=>{
+    e.preventDefault()
+    try {
+      const data = await fetch('/api/contact/',{
+        method:'POST',
+        body:JSON.stringify(formdata),
+        headers:{
+          'Content-Type':'application/json',
+        }
+      })
+      const res = await data.json()
+      console.log(res)
+      setFormData({
+        username: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      console.log(error);
     }
+  }
+
+
   return (
     <div>
       <div className="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif]">
@@ -92,7 +105,7 @@ const ContactCard = () => {
                     </ul>
                 </div>
             </div>
-            <form className="ml-auo space-y-4">
+            <form className="ml-auo space-y-4" onSubmit={handleSubmit}>
                 <input type='text' placeholder='Name' required name='username'
                     className="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"  value={formdata.username} onChange={handleChange}/>
                 <input type='email' placeholder='Email' required name='email'
@@ -101,8 +114,9 @@ const ContactCard = () => {
                     className="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"  value={formdata.subject} onChange={handleChange}/>
                 <textarea placeholder='Message' rows="6" required name='message'
                     className="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]" value={formdata.message} onChange={handleChange}></textarea>
-                <button type='submit' onSubmit={handleSubmit}
+                <button type='submit' onClick={notify}
                     className="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full">Send</button>
+                    <ToastContainer />
             </form>
         </div>
     </div>
