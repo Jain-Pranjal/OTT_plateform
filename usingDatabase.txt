@@ -1,0 +1,4 @@
+for the project i have use the mongo db and for that i also need to modify the next config file in order to connect to the database
+see the utils folder that have the connection and and the models that contains the schema of the database and then the api route where the server code is wriiten to fetch and write the data inside the database
+[comment]: # (Dont forget to add the external package to the next config file in order ton use the database)
+
